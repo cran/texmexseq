@@ -33,7 +33,7 @@ p
 interesting <- filter(quad, d.treatment > d.control + 1.0)
 
 # i can add those in a separate color onto the plot
-p + geom_points(data=interesting, col='red')
+p + geom_point(data=interesting, col='red')
 
 # and i can ask which OTUs are those interesting ones (with the ones that have 
 # the biggest increase in F at the top). i use "head" to only look at the top

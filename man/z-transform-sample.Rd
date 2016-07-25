@@ -12,23 +12,29 @@
 
 \usage{
     z.transform.sample(n)
-    z.transform.table(otu)
+    z.transform.table(otu, ignore='otu')
     f.transform.sample(n)
-    f.transform.table(otu)
+    f.transform.table(otu, ignore='otu')
 }
 
 \arguments{
   \item{n}{vector of observed counts}
   \item{otu}{data frame OTU table}
+  \item{ignore}{columns that should not be transform (e.g., OTU IDs) have names that match
+    this pattern (i.e., those columns are excluded using \code{dplyr}'s \code{-matches(ignore)}}
 }
 
 \details{
 \code{z.transform.sample} fits the Poisson lognormal distribution to the count data and uses
-that fit to transform those raw read counts into rescaled reads. \code{z.transform.table}
-performs the same function on an OTU table (which should have one sample per column and 
-should have the OTU IDs as rownames). This second function is just for convenience: it applies
-\code{z.transform.sample} to each column, packages the result into a data frame, and keeps
-the old rownames.
+that fit to transform those raw read counts into rescaled reads.
+
+\code{z.transform.table} performs the same function on an OTU table, which
+should have one sample per column and, potentially, an ID column that matches
+the \code{ignore} option (e.g., \code{'otu'} will match \code{OTU} or
+\code{OTU_ID}).  This function is just for convenience: it applies
+\code{z.transform.sample} to each column (that does not match the \code{ignore}
+option) and packages the result into a data frame. Because it uses a
+\code{dplyr} function, the rownames will be lost.
 
 \code{f.transform.sample} and \code{f.transform.table} are analogous to the \code{z} functions,
 only they return theoretical cumulative distribution function values.
@@ -57,9 +63,8 @@ hist(f.transform.sample(sample1))
 
 # make up a table of data
 sample2 <- sim.data()
-otu.table <- data.frame(sample1=sample1, sample2=sample2)
 otu.ids <- paste('otu', seq(1, 100), sep='')
-rownames(otu.table) <- otu.ids
+otu.table <- data.frame(OTU_ID=otu.ids, sample1=sample1, sample2=sample2)
 
 # make a new table from those fitted values
 f.table <- f.transform.table(otu.table)

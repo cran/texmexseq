@@ -16,6 +16,9 @@ sections of the help pages for the functions in the package also have working co
 The package in on CRAN, so it should be as easy as `install.packages('texmexseq')`.
 
 ## New in this version
+Version 0.3 improved the behavior of `z.transform.table` and `f.transform.table`.
+It also resolved a conflict between `dplyr` and `testthat`.
+
 Version 0.2 is a non-backward-compatible rework of version 0.1. The underlying
 theory and computational methods are the same. Rather than creating Pair and Quad
 functions, the transformations are made directly to the OTU tables. Plots are

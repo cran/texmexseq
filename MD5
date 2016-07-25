@@ -1,10 +1,10 @@
-3be9ec4d57785098c207def47d8f4d4c *DESCRIPTION
-429d4f88e8328fdbc00035e4f7507cf9 *NAMESPACE
-753efe366d2a945d87cc36a6491f57bb *R/session.R
+79069589e771427c4de2d6a486589464 *DESCRIPTION
+1cc09dd9db8b907b6d27966e29ee3432 *NAMESPACE
+d038852128c9a3ef8d1e5d41354054ea *R/session.R
 b5a60b0b34a5d382a708e55a1525dc00 *R/texmexseq.R
-33bb46681aad842b346a8292b8db9805 *README.md
+b47ce1deaed2efb7caace76b9a54507f *README.md
 357d06171a2ba0a8921a724f7e86143a *demo/00Index
-b839adb7b5600605edab4145a883341d *demo/demo.R
+ea164ce60abc28d4fafe6d2635401ac9 *demo/demo.R
 ecb5651b4aacff3faccf5a20cc0336bc *inst/extdata/otus.dat
 c59b614cbb9a0d8e11dc4d166a3eead9 *man/dpoilog.Rd
 f5ce1cc7edfac023d71d853c896d37d8 *man/poilogMLE.Rd
@@ -12,7 +12,7 @@ f5ce1cc7edfac023d71d853c896d37d8 *man/poilogMLE.Rd
 be70790e3403ae0c95120b1ef58bb650 *man/quad-table.Rd
 9f328e45c7014f966d6915ca4e1a00c1 *man/texmex-fit.Rd
 1718e4ef8a0f52092fa184689eff4048 *man/texmexseq-package.Rd
-a71760b1108622770ff025959c646439 *man/z-transform-sample.Rd
+8de0d4b091c4101fc6acfa05e9e51795 *man/z-transform-sample.Rd
 0dd8f840772424ecc83de24e6c1b4349 *src/texmexseq_s_cint.c
 0df6ab58eb472f671a2c01c39f4b33c0 *tests/testthat.R
 ecb5651b4aacff3faccf5a20cc0336bc *tests/testthat/otus.dat

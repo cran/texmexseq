@@ -1,19 +1,15 @@
 library(dplyr)
 library(ggplot2)
 
-dfapply <- function(otu, fun) {
-  applied <- as.data.frame(apply(otu, 2, fun))
-  rownames(applied) <- rownames(otu)
-  return(applied)
-}
-
 z.transform.sample <- function(n) {
     fit <- texmex.fit(n)
     z <- (log(n) - fit$par['mu']) / fit$par['sig']
     return(z)
 }
 
-z.transform.table <- function(otu) dfapply(otu, z.transform.sample)
+z.transform.table <- function(otu, ignore='otu') {
+    return(mutate_at(otu, vars(-matches(ignore)), z.transform.sample))
+}
 
 f.transform.sample <- function(n) {
     fit <- texmex.fit(n)
@@ -31,7 +27,9 @@ f.transform.sample <- function(n) {
     return(f)
 }
 
-f.transform.table <- function(otu) dfapply(otu, f.transform.sample)
+f.transform.table <- function(otu, ignore='otu') {
+    return(mutate_at(otu, vars(-matches(ignore)), f.transform.sample))
+}
 
 ppplot <- function(n, n.points=10) {
     # convenience function for plotting
